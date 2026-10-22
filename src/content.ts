@@ -10,7 +10,7 @@ export type Photo = {
 // Tambahkan berkas ke public/images, lalu isi src dengan '/images/nama-berkas.webp'.
 // Null berarti komposisi tetap ditampilkan tanpa foto atau permintaan aset kosong.
 export const photos: Record<string, Photo> = {
-  portrait: { src: null, alt: 'Potret Siti Hawa Dewi Utari', caption: 'Hawa · Gizi, edukasi, dan masyarakat', position: '50% 40%', width: 800, height: 1000 },
+  portrait: { src: '/fotoprofil.webp', alt: 'Potret Siti Hawa Dewi Utari', caption: 'Hawa · Gizi, edukasi, dan masyarakat', position: '50% 100%', width: 2688, height: 4032 },
   education: { src: null, alt: 'Dokumentasi edukasi gizi dalam Gizi Peduli Indonesia', caption: 'Gizi Peduli Indonesia · Bogor, 2023', position: '50% 50%', width: 1200, height: 800 },
   entrepreneurship: { src: null, alt: 'Dokumentasi produk kewirausahaan Chicheebay', caption: 'Chicheebay · PMW Universitas Sriwijaya', position: '50% 50%', width: 1200, height: 800 },
   content: { src: null, alt: 'Dokumentasi konten promosi kesehatan saat magang', caption: 'Promosi kesehatan · RSUD Ahmad Yani, 2025', position: '50% 50%', width: 1200, height: 800 },
@@ -67,4 +67,98 @@ export const stories = [
 export const organizations = [
   { name: 'HIKAGI Universitas Sriwijaya', period: '2023–2024', role: 'Staf bidang pengembangan keterampilan mahasiswa', description: 'Mengikuti kegiatan ILMAGI dan menjadi delegasi Gizi Peduli Indonesia di IPB University.' },
   { name: 'BKM Adz-Dzikra', period: '2023–2024', role: 'Staf bidang kajian Islam · Fakultas Kesehatan Masyarakat', description: 'Menjadi ketua pelaksana One Day One Juz dan Millennial Islamic Festival, serta sekretaris pelaksana Kajian Islami Mahasiswa (KAMAMI).' },
+]
+
+export type Certificate = {
+  id: string
+  title: string
+  issuer: string
+  role: string
+  date: string
+  year: string
+}
+
+// Dokumen Drive dibaca dan dicocokkan dengan nama penerima pada 22 Oktober 2026.
+// Sertifikat kegiatan/pelatihan ini bukan lisensi atau sertifikasi profesi.
+export const certificateFolderUrl = 'https://drive.google.com/drive/folders/13c5pimFklwDgxlm2JuArnEnrt0-SM5N4'
+
+export const certificates: Certificate[] = [
+  {
+    id: '1MvXqqr8T_ExRDqsqCmEzK-wtyO8OelYl',
+    title: 'Orientasi Mahasiswa Praktik',
+    issuer: 'UPTD RSUD Jenderal Ahmad Yani Metro',
+    role: 'Peserta orientasi', date: '11 Agustus 2025', year: '2025',
+  },
+  {
+    id: '1h5SuwCE-4_ErElgZWq6RxInNgR9JiMlo',
+    title: 'Bina Masyarakat Desa: Desa Sehat, Lingkungan Lestari',
+    issuer: 'FKM Universitas Sriwijaya',
+    role: 'Panitia', date: '7–8 November 2024', year: '2024',
+  },
+  {
+    id: '1OpDUCe2cp_a_UaBIsq1Y-E87eYZfh-tA',
+    title: 'Youth Today: Leadership Unleashed',
+    issuer: 'AIESEC in Universitas Sriwijaya',
+    role: 'Delegasi', date: '7 September 2024', year: '2024',
+  },
+  {
+    id: '1AW3znb3BYF7DUAcIL72bg5MJQH0H4hOC',
+    title: 'Pelatihan Tim Nutrition Help Care 2024',
+    issuer: 'HIKAGI FKM Universitas Sriwijaya',
+    role: 'Peserta', date: '30 Agustus 2024', year: '2024',
+  },
+  {
+    id: '17vV8Cm8sG8CkasOzCShNOyZvVk3_Whl6',
+    title: 'Nutrition Fair 5.0: Watch Your Snack, Caring Your Health',
+    issuer: 'HIKAGI FKM Universitas Sriwijaya',
+    role: 'Koordinator Divisi Humas', date: '2024', year: '2024',
+  },
+  {
+    id: '1_euiBFbhgn8Utivc3bLMG34089iOxWkE',
+    title: 'Seminar Keprofesian Nutripreneur',
+    issuer: 'Ikatan Lembaga Mahasiswa Gizi Indonesia (ILMAGI)',
+    role: 'Peserta', date: '25 Februari 2024', year: '2024',
+  },
+  {
+    id: '1cG3UPXhFo1yvoadFx4i93LgzdmcYitDu',
+    title: 'Gizi Peduli Indonesia 2023',
+    issuer: 'IPB University · ILMAGI · HIMAGIZI',
+    role: 'Delegasi', date: '2–4 Juni 2023', year: '2023',
+  },
+  {
+    id: '1oHo4eM6or_ns9b7QevEp6Ae3TPIXzCur',
+    title: 'Seminar Gizi dan Mitigasi COVID-19',
+    issuer: 'Fakultas Kesehatan Masyarakat Universitas Indonesia',
+    role: 'Peserta', date: '17 Desember 2022', year: '2022',
+  },
+  {
+    id: '1yYmNAx0EhfSEZP3WaG0hd4GpaBp51690',
+    title: 'Pembelajaran Pencegahan dan Penanganan Kekerasan Seksual',
+    issuer: 'Pusat Penguatan Karakter, Kemendikbudristek',
+    role: 'Penyelesaian modul', date: '9 November 2022', year: '2022',
+  },
+  {
+    id: '1ztrY29KsvDfyjnFTg7w3KBv1NqGwiSO0',
+    title: 'Ruang Bincang Inspirasi #21',
+    issuer: 'Pondok Inspirasi',
+    role: 'Peserta', date: '22 Oktober 2022', year: '2022',
+  },
+  {
+    id: '11LnQ2fqF-K-G6Fhm7zGFAw20UMTlXMU5',
+    title: 'Core Workshop: Career and Digital Skills',
+    issuer: 'BEM KM Universitas Sriwijaya',
+    role: 'Peserta', date: '30 Juli 2022', year: '2022',
+  },
+  {
+    id: '1PoRHXxha9_mq3N7P9LO5ovr4NC-HppLb',
+    title: 'IT Talks: Product Management in Tech Industry',
+    issuer: 'ParagonCorp · pemimpin.id',
+    role: 'Peserta', date: '30 Juli 2022', year: '2022',
+  },
+  {
+    id: '1CUbcIpSw9XyZrXapyvARFKwYK2YS8HfY',
+    title: 'Daurah ‘Arabiyyah',
+    issuer: 'PKL UIN Maulana Malik Ibrahim Malang · LPD Al-Bahjah 2 Buyut',
+    role: 'Terajin Daurah ‘Arabiyyah I', date: '9 Oktober 2021', year: '2021',
+  },
 ]

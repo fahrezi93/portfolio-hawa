@@ -41,12 +41,15 @@ Rekomendasi: potret 800 × 1000 px (4:5), dokumentasi 1200 × 800 px (3:2), form
 - Periode pendidikan 2022–2025 dan IPK 3,76 mengikuti CV; tidak ditafsirkan sebagai konfirmasi kelulusan atau lisensi profesi.
 - Program dietetik dan MIJP tercatat pada institusi/tahun yang sama. Halaman menyeleksi kontribusi magang dietetik agar tidak mengulang kegiatan; singkatan MIJP tidak dikembangkan.
 - Chicheebay dan kolaborasi produk ubi ungu adalah kegiatan terpisah. Tahun Chicheebay tidak disebut di CV sehingga tidak diberi tahun rekaan.
-- Sertifikat pendukung tidak ditemukan pada lokasi yang diberikan. Keikutsertaan delegasi Gizi Peduli Indonesia 2023 didukung CV; sertifikat belum diverifikasi.
+- Pada 22 Oktober 2026, semua 13 berkas dalam folder Google Drive sertifikat telah dibaca dan dicocokkan dengan nama Hawa, termasuk sertifikat delegasi Gizi Peduli Indonesia 2023. Data judul, penyelenggara, peran, tanggal, serta ID berkas berada dalam `certificates` di `src/content.ts`; tautan folder berada pada `certificateFolderUrl`. Dokumen dibuka langsung melalui Drive, tanpa menyalin berkas sertifikat ke aset publik website.
+- Sertifikat RSUD membuktikan orientasi mahasiswa praktik pada 11 Agustus 2025, bukan sertifikat kelulusan magang dietetik. Sertifikat workshop karier adalah keikutsertaan workshop, bukan pengalaman internship. Keikutsertaan seminar dan pelatihan tidak ditafsirkan sebagai lisensi profesi atau tingkat kemampuan tertentu.
 
 ## Yang perlu dilengkapi
 
-Potret, dokumentasi kegiatan/produk, konfirmasi status pendidikan terbaru, CV yang diperbarui, alamat LinkedIn, dan sertifikat pendukung. Website dapat ditinjau tanpa aset tambahan tersebut.
+Dokumentasi kegiatan/produk, konfirmasi status pendidikan terbaru, CV yang diperbarui, dan alamat LinkedIn. Potret sudah menggunakan `public/fotoprofil.webp`; sertifikat sudah terhubung ke Drive. Website dapat ditinjau tanpa aset tambahan tersebut.
 
 ## Verifikasi
+
+Animasi masuk saat scroll diatur di `src/useScrollReveal.ts`: fade-in 240 ms dengan pergeseran 12 px, sekali per elemen. Menggunakan API browser bawaan tanpa dependensi tambahan. Pembuka tetap langsung terlihat; judul bagian, pengalaman, karya, organisasi, sertifikat, dan kontak muncul saat masuk layar. Reduced motion mematikan animasi. Jika API tidak tersedia atau animasi gagal, konten tetap terlihat.
 
 Lihat `docs/verification.md` untuk hasil pemeriksaan. Berkas sementara pengujian dan render berada di `tmp/`, yang diabaikan Git dan tidak masuk build.

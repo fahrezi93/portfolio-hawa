@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { experiences, organizations, photos, profile, stories } from './content'
+import { certificateFolderUrl, certificates, experiences, organizations, photos, profile, stories } from './content'
 import type { Photo } from './content'
+import { useScrollReveal } from './useScrollReveal'
 
 function Arrow() {
   return <span aria-hidden="true" className="arrow">↗</span>
@@ -28,7 +29,8 @@ function SectionLabel({ number, children }: { number: string; children: React.Re
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const navigation = [['Tentang', 'tentang'], ['Pengalaman', 'pengalaman'], ['Karya', 'karya'], ['Kontak', 'kontak']]
+  const mainRef = useScrollReveal()
+  const navigation = [['Tentang', 'tentang'], ['Pengalaman', 'pengalaman'], ['Karya', 'karya'], ['Sertifikat', 'sertifikat'], ['Kontak', 'kontak']]
   return <>
     <a className="skip-link" href="#utama">Langsung ke isi</a>
     <header className="site-header">
@@ -40,7 +42,7 @@ export default function App() {
         </nav>
       </div>
     </header>
-    <main id="utama">
+    <main id="utama" ref={mainRef}>
       <section className="hero container" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="eyebrow"><span className="small-line" />PORTFOLIO PERSONAL</p>
@@ -83,8 +85,22 @@ export default function App() {
         <div>{organizations.map(item => <article className="organization" key={item.name}><p className="organization-period">{item.period}</p><h3>{item.name}</h3><p className="organization-role">{item.role}</p><p>{item.description}</p></article>)}</div>
       </section>
 
+      <section id="sertifikat" className="container section certificates" aria-labelledby="certificates-title">
+        <div className="section-heading certificates-heading">
+          <div><SectionLabel number="05">Sertifikat & penghargaan</SectionLabel><h2 id="certificates-title">Catatan kegiatan,<br /><em>bekal untuk bertumbuh.</em></h2></div>
+          <div className="certificates-intro"><p>Dokumentasi keikutsertaan, kepanitiaan, dan pembelajaran saya. Setiap sertifikat dapat dibaca langsung di Google Drive.</p><a className="text-link" href={certificateFolderUrl} target="_blank" rel="noopener noreferrer">Buka folder Drive <Arrow /></a></div>
+        </div>
+        <ol className="certificate-list">
+          {certificates.map(certificate => <li className="certificate-row" key={certificate.id}>
+            <span className="certificate-year">{certificate.year}</span>
+            <div className="certificate-content"><p className="eyebrow">{certificate.role}</p><h3>{certificate.title}</h3><p className="certificate-issuer">{certificate.issuer}</p><p className="certificate-date">{certificate.date}</p></div>
+            <a className="certificate-link" href={`https://drive.google.com/file/d/${certificate.id}/view`} target="_blank" rel="noopener noreferrer" aria-label={`Lihat sertifikat ${certificate.title} di Google Drive (tab baru)`}>Lihat sertifikat <Arrow /></a>
+          </li>)}
+        </ol>
+      </section>
+
       <section id="kontak" className="contact-section" aria-labelledby="contact-title"><div className="container contact-inner">
-        <div><SectionLabel number="05">Mari terhubung</SectionLabel><h2 id="contact-title">Awal yang baik,<br /><em>dari sebuah percakapan.</em></h2><p>Saya terbuka untuk peluang kerja di bidang gizi dan kesehatan, serta kolaborasi dalam edukasi masyarakat.</p></div>
+        <div><SectionLabel number="06">Mari terhubung</SectionLabel><h2 id="contact-title">Awal yang baik,<br /><em>dari sebuah percakapan.</em></h2><p>Saya terbuka untuk peluang kerja di bidang gizi dan kesehatan, serta kolaborasi dalam edukasi masyarakat.</p></div>
         <div className="contact-links"><a className="email-link" href={`mailto:${profile.email}`}><span className="eyebrow">KIRIM EMAIL</span><span>{profile.email} <Arrow /></span></a><div className="contact-secondary">{profile.linkedin && <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a>}{profile.cv && <a href={profile.cv} download>Unduh CV <span aria-hidden="true">↓</span></a>}</div></div>
       </div></section>
     </main>
